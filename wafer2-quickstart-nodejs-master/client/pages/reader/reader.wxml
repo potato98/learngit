@@ -1,0 +1,30 @@
+<!--pages/book/book.wxml-->
+<view class='swiper-wrapper'>
+  <!--总轮播图  -->
+  <swiper class='swiper-box'>
+  <!--书本封面S  -->
+    <swiper-item class='item-cover'>
+      <view class="bookcover">
+            <view class='pic-view'>
+              <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%" class = 'pic'></image>
+            </view>
+            <view class="name">{{bookInfo.title}}</view>
+            <view class="author">作者：{{bookInfo.author}}</view>
+      </view>
+    </swiper-item>
+    <!--书本封面E  -->
+
+     <!-- 书本内容页面 S-->
+    <swiper-item wx:for="{{pages}}" wx:for-index="index">
+      <view class="bookpage">
+          <!-- 内容 S -->
+          <view class="page-wrapper">
+            <view class="content"><text class='content-txt'>{{item.text}}</text></view>
+          </view>
+          <!-- 内容 E -->
+        <view class="page-num">{{index + 1}}</view>
+      </view>
+    </swiper-item>
+    <!-- 书本内容页面 E-->
+  </swiper>
+</view>

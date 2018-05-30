@@ -36,4 +36,12 @@
             <text>快速增加 CGI</text>
         </navigator>
     </view>
+
+     <view class="uploader">
+        <navigator url="../newpage/newpage" open-type="navigate" class="uploader-text">
+         <text>newpage</text> 
+        </navigator>
+    </view>
+
+
 </view>

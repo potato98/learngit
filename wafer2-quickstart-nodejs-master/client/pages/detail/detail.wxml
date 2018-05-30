@@ -1,0 +1,50 @@
+<view id='book1' class='content' style='background-color: #EFEFF4'>
+  <view class='image-view'>
+    <image src="/images/book_detail_example.png" class='image' mode="scaleToFill">
+    </image>
+  </view>
+
+  <view id='rightt' class='rightstyle'>
+    <view id='shuming' class='shumingstyle'>舍得，舍不得</view>
+    <view id='zuozhe' class='zuozhestyle'>作者:蒋勋</view>
+    <view id='jianjie' class='jianjiestyle'>
+      <view class='blstyle' class='leibiestyle'>类别:文学</view>
+    </view>
+
+    <view id='youxia' class='youxiastyle'>
+      <view id='blank' class='blankstyle'></view>
+      <view>
+        <button class='buttonstyle' hover-class='hover-style'> 收藏</button>
+      </view>
+      <view class='anniuzhong'></view>
+      <view>
+        <navigator url='/pages/reader/reader'>
+
+          <button class='buttonstyle' hover-class='hover-style'> 阅读</button>
+
+        </navigator>
+      </view>
+    </view>
+
+    <!-- <view id='bla' class='kong'></view> -->
+  </view>
+</view>
+
+<view class='zhangjiestyle' style='border-bottom: medium solid #EFEFF4'>
+  <view class='borderstyle' style='height:15%'>
+    章节目录
+  </view>
+  <scroll-view scroll-y="true" style='height:85%'>
+    这是章节目录测试
+  </scroll-view>
+</view>
+
+<view class='pinglunstyle' style='border-bottom: medium solid #EFEFF4'>
+  <view class='borderstyle2' style='height:15%'>
+    全部评论
+  </view>
+  <scroll-view scroll-y="true" style='height:85%'>
+    这是评论测试
+  </scroll-view>
+  <input class="weui-input" placeholder="请输入评论..." type='text' confirm-type='send' style='border-top: medium solid #EFEFF4'> </input>
+</view>

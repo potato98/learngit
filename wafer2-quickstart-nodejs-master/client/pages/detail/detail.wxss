@@ -1,0 +1,167 @@
+@import '/weui.wxss';
+
+.mainstyle{
+  border:1rpx dashed gray;
+}
+.content{
+  height: 330rpx;
+  display: flex;
+}
+.image-view{
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 250rpx;
+  height: 350rpx;
+}
+
+.image{
+  height: 280rpx;
+  width: 200rpx;
+}
+.rightstyle{
+  height: 250rpx;
+  width:500rpx;
+  display: flex;
+  flex-direction: column;
+}
+.shumingstyle{
+  margin-top: 25rpx;
+  margin-left: 25rpx;
+  height: 50rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.zuozhestyle{
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  color: blue;
+  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.anniuzhong{
+  width: 60rpx;
+}
+.jianjiestyle{
+  height: 60rpx;
+    display: flex;
+  flex-direction: row;
+}
+.kong{
+  height: 20rpx;
+}
+.tongjistyle{
+  height: 50rpx;
+  font-size: 13rpx;
+  display: flex;
+  align-items: center; 
+}
+.youxiastyle{
+  margin-top: 80rpx; 
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+.blankstyle{
+  width: 120rpx;
+  font-size: 25rpx;
+}
+.biaoqianstyle{
+  width: 70rpx;
+  color: red;
+  font-size: 10rpx;
+  border:2rpx dashed black;
+  display: flex;  
+  align-items: center;  
+  justify-content: center; 
+}
+.leibiestyle{
+   margin-top: 20rpx;
+  margin-left: 25rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  color: black;
+  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.zishustyle{
+  width: 70rpx;
+  font-size: 10rpx;
+  border:2rpx dashed black;
+  display: flex;  
+  align-items: center;  
+  justify-content: center; 
+}
+.weui-search-bar{
+  position:relative;
+  padding:8rpx 10rpx;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  box-sizing:border-box;
+  background-color:#EFEFF4;
+  
+}
+
+.blstyle{
+  width: 300rpx;
+}
+.buttonstyle{
+  
+  width: 150rpx;
+  height: 75rpx;
+  font-size: 35rpx;
+  color: white;
+  display: flex;  
+  background-color:#6CA6CD;
+  align-items: center;  
+  justify-content: center; 
+  border-radius: 100rpx;
+
+}
+.zishustyle{
+  width: 70rpx;
+  font-size: 20rpx;
+  border:2rpx dashed black;
+  display: flex;  
+  align-items: center;  
+  justify-content: center; 
+}
+.zhangjiestyle{
+  height: 450rpx;
+}
+.pinglunstyle{
+  height: 500rpx;
+}
+.weui-input{
+  width:100%;
+  border:0;
+  outline:0;
+  -webkit-appearance:none;
+  background-color:transparent;
+  font-size:inherit;
+  color:inherit;
+  height:1.47058824em;
+  line-height:1.47058824;
+}
+
+.borderstyle{
+  font-weight: bold;
+  font-size: 38rpx;
+  margin-top:15rpx;
+  margin-left:15rpx;
+  border-bottom: 2rpx dashed #EFEFF4;
+}
+.borderstyle2{
+  font-size: 30rpx;
+  margin-top:15rpx;
+  margin-left:15rpx;
+  border-bottom: 2rpx dashed #EFEFF4;
+}
+.hover-style{
+  background-color:cadetblue;
+}

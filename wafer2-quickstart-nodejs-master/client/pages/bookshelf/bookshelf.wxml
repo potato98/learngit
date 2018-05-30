@@ -1,0 +1,24 @@
+
+   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <navigator url='/pages/detail/detail'>
+        <view id='book1' class='content'>
+          <view id='imagee' class='leftstyle'>
+            <image src="/images/book_referrence.png" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>舍得，舍不得</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:蒋勋</view>
+            <view id='jianjie' class='jianjiestyle'> 
+            作者借自己在旅途的经历，结合自己读经的领悟，用多年浸润的佛学....</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>FREE</view>
+              <view id='leibie' class='leibiestyle'>文学</view>
+              <view id='zishu' class='zishustyle'>23万字</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </scroll-view>
+
