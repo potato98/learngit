@@ -1,0 +1,28 @@
+<view wx:if = "{{search_result}}"> 
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{search_book}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{search_book[index].Book_Id}}&name={{search_book[index].Book_Name}}&picurl={{search_book[index].Picture_URL}}&auth={{search_book[index].Author}}&cate={{search_book[index].Category}}&label={{search_book[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{search_book[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{search_book[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{search_book[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{search_book[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{search_book[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{search_book[index].Category}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+</view>
+
+<view wx:else>
+  没有查到任何书籍
+</view>

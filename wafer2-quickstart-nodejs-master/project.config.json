@@ -1,13 +1,81 @@
 {
-	"client": "./client",
-	"svr": "./server",
-	"miniprogramRoot": "./client",
-	"qcloudRoot": "./server",
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
 		"newFeature": true
 	},
-	"appid": "wx0d5bc1976c4c19f2",
-	"projectname": "ik%E5%9B%BE%E4%B9%A6%E5%8A%A9%E6%89%8B",
 	"compileType": "miniprogram",
-	"condition": {}
+	"libVersion": "1.9.98",
+	"appid": "wx0d5bc1976c4c19f2",
+	"projectname": "ik%E5%9B%BE%E4%B9%A6%E5%8A%A9%E6%89%8B2",
+	"svr": "./server",
+	"client": "./client",
+	"qcloudRoot": "./server",
+	"miniprogramRoot": "./client",
+	"pluginRoot": "",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reader",
+					"pathName": "pages/reader/reader",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bookshelf",
+					"pathName": "pages/bookshelf/bookshelf",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "searchres",
+					"pathName": "pages/searchresult/searchresult",
+					"query": ""
+				}
+			]
+		}
+	}
 }

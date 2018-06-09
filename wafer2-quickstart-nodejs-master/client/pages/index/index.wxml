@@ -1,47 +1,285 @@
-<!--index.wxml-->
-<view class="container">
-    <!-- 用户登录测试 -->
-    <view class="userinfo">
-        <image
-            class="userinfo-avatar"
-            src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
-            background-size="cover"
-        ></image>
-        <view>
-            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击测试登录接口</button>
-            <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
-        </view>
-    </view>
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" catchtap="navbarTap">{{item}}</text>
+</view>
 
+<!--推荐-->
+<view hidden="{{currentTab!==0}}">
 
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
-            <text>上传图片</text>
-        </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image
-                class="uploader-image"
-                src="{{imgUrl}}"
-                mode="aspectFit"
-                bindtap="previewImg"
-            ></image>
-        </view>
-    </view>
+  <image src="/images/book_referrence.png" class="book_refer"></image>
 
+  <navigator url='/pages/search/search'>
+   <view class='searchbar_box'>
+    <image src="/images/searchbar.png" class="searchbar"></image>
+  </view>
+  </navigator>
+ 
+  <view class='refer_text'>
+    今日推荐
+  </view>
 
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <navigator url="../addCgi/addCgi" open-type="navigate" class="uploader-text">
-            <text>快速增加 CGI</text>
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{refer_book}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{refer_book[index].Book_Id}}&name={{refer_book[index].Book_Name}}&picurl={{refer_book[index].Picture_URL}}&auth={{refer_book[index].Author}}&cate={{refer_book[index].Category}}&label={{refer_book[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{refer_book[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{refer_book[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{refer_book[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{refer_book[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{refer_book[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{refer_book[index].Category}}</view>
+              </view>
+            </view>
+          </view>
         </navigator>
-    </view>
+      </block>
+    </scroll-view>
 
-     <view class="uploader">
-        <navigator url="../newpage/newpage" open-type="navigate" class="uploader-text">
-         <text>newpage</text> 
+</view>
+
+<!--分类-->
+<view hidden="{{currentTab!==1}}">
+  <view class='Categorystyle'>
+    小说
+  </view>
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+    <block wx:for="{{book_xiaoshuo}}" wx:key="booknum" >
+      <navigator url='/pages/detail/detail?id={{book_xiaoshuo[index].Book_Id}}&name={{book_xiaoshuo[index].Book_Name}}&picurl={{book_xiaoshuo[index].Picture_URL}}&auth={{book_xiaoshuo[index].Author}}&cate={{book_xiaoshuo[index].Category}}&label={{book_xiaoshuo[index].Label}}'>
+        <view id='book1' class='content'>
+          <view id='imagee' class='leftstyle'>
+            <image src="{{book_xiaoshuo[index].Picture_URL}}" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>{{book_xiaoshuo[index].Book_Name}}</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:{{book_xiaoshuo[index].Author}}</view>
+            <view id='jianjie' class='jianjiestyle'>{{book_xiaoshuo[index].Summary}}</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>{{book_xiaoshuo[index].Label}}</view>
+              <view id='leibie' class='leibiestyle'>{{book_xiaoshuo[index].Category}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+
+  <view class='Categorystyle'>
+    传记
+  </view>
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+    <block wx:for="{{book_zhuanji}}" wx:key="booknum" >
+      <navigator url='/pages/detail/detail?id={{book_zhuanji[index].Book_Id}}&name={{book_zhuanji[index].Book_Name}}&picurl={{book_zhuanji[index].Picture_URL}}&auth={{book_zhuanji[index].Author}}&cate={{book_zhuanji[index].Category}}&label={{book_zhuanji[index].Label}}'>
+        <view id='book1' class='content' >
+          <view id='imagee' class='leftstyle'>
+            <image src="{{book_zhuanji[index].Picture_URL}}" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>{{book_zhuanji[index].Book_Name}}</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:{{book_zhuanji[index].Author}}</view>
+            <view id='jianjie' class='jianjiestyle'>{{book_zhuanji[index].Summary}}</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>{{book_zhuanji[index].Label}}</view>
+              <view id='leibie' class='leibiestyle'>{{book_zhuanji[index].Category}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+  
+  <view class='Categorystyle'>
+    艺术
+  </view>
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+    <block wx:for="{{book_yishu}}" wx:key="booknum" >
+      <navigator url='/pages/detail/detail?id={{book_yishu[index].Book_Id}}&name={{book_yishu[index].Book_Name}}&picurl={{book_yishu[index].Picture_URL}}&auth={{book_yishu[index].Author}}&cate={{book_yishu[index].Category}}&label={{book_yishu[index].Label}}'>
+        <view id='book1' class='content'>
+          <view id='imagee' class='leftstyle'>
+            <image src="{{book_yishu[index].Picture_URL}}" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>{{book_yishu[index].Book_Name}}</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:{{book_yishu[index].Author}}</view>
+            <view id='jianjie' class='jianjiestyle'>{{book_yishu[index].Summary}}</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>{{book_yishu[index].Label}}</view>
+              <view id='leibie' class='leibiestyle'>{{book_yishu[index].Category}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+
+  <view class='Categorystyle'>
+    文学
+  </view>
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+    <block wx:for="{{book_wenxue}}" wx:key="booknum" >
+      <navigator url='/pages/detail/detail?id={{book_wenxue[index].Book_Id}}&name={{book_wenxue[index].Book_Name}}&picurl={{book_wenxue[index].Picture_URL}}&auth={{book_wenxue[index].Author}}&cate={{book_wenxue[index].Category}}&label={{book_wenxue[index].Label}}'>
+        <view id='book1' class='content'>
+          <view id='imagee' class='leftstyle'>
+            <image src="{{book_wenxue[index].Picture_URL}}" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>{{book_wenxue[index].Book_Name}}</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:{{book_wenxue[index].Author}}</view>
+            <view id='jianjie' class='jianjiestyle'>{{book_wenxue[index].Summary}}</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>{{book_wenxue[index].Label}}</view>
+              <view id='leibie' class='leibiestyle'>{{book_wenxue[index].Category}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+
+</view>
+
+<!--限免-->
+<view hidden="{{currentTab!==2}}">
+
+  <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+    <block wx:for="{{free_book}}" wx:key="booknum" >
+      <navigator url='/pages/detail/detail?id={{free_book[index].Book_Id}}&name={{free_book[index].Book_Name}}&picurl={{free_book[index].Picture_URL}}&auth={{free_book[index].Author}}&cate={{free_book[index].Category}}&label={{free_book[index].Label}}'>
+        <view id='book1' class='content'>
+          <view id='imagee' class='leftstyle'>
+            <image src="{{free_book[index].Picture_URL}}" class='left-image'>
+            </image>
+          </view>
+          <view id='rightt' class='rightstyle'>
+            <view id='shuming' class='shumingstyle'>{{free_book[index].Book_Name}}</view>
+            <view id='zuozhe' class='zuozhestyle'>作者:{{free_book[index].Author}}</view>
+            <view id='jianjie' class='jianjiestyle'>{{free_book[index].Summary}}</view>
+            <view id='youxia' class='youxiastyle'>
+              <view id='blank' class='blankstyle'></view>
+              <view id='biaoqian' class='biaoqianstyle'>{{free_book[index].Label}}</view>
+              <view id='leibie' class='leibiestyle'>{{free_book[index].Category}}</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
+</view>
+
+<!--排行-->
+<view hidden="{{currentTab!==3}}">
+  <view class="navbar">
+    <text wx:for="{{navbar2}}" data-idx="{{index}}" class="item {{currentTab2==index ? 'active' : ''}}" wx:key="unique" catchtap="navbarTap2">{{item}}</text>
+  </view>
+
+  <view hidden="{{currentTab2!==0}}">
+    <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{dianji}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{dianji[index].Book_Id}}&name={{dianji[index].Book_Name}}&picurl={{dianji[index].Picture_URL}}&auth={{dianji[index].Author}}&cate={{dianji[index].Category}}&label={{dianji[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{dianji[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{dianji[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{dianji[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{dianji[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{dianji[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{dianji[index].Category}}</view>
+              </view>
+            </view>
+          </view>
         </navigator>
-    </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view hidden="{{currentTab2!==1}}">
+    <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{shoucang}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{shoucang[index].Book_Id}}&name={{shoucang[index].Book_Name}}&picurl={{shoucang[index].Picture_URL}}&auth={{shoucang[index].Author}}&cate={{shoucang[index].Category}}&label={{shoucang[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{shoucang[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{shoucang[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{shoucang[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{shoucang[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{shoucang[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{shoucang[index].Category}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+  <view hidden="{{currentTab2!==2}}">
+    <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{fufei}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{fufei[index].Book_Id}}&name={{fufei[index].Book_Name}}&picurl={{fufei[index].Picture_URL}}&auth={{fufei[index].Author}}&cate={{fufei[index].Category}}&label={{fufei[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{fufei[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{fufei[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{fufei[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{fufei[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{fufei[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{fufei[index].Category}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+  <view hidden="{{currentTab2!==3}}">
+    <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
+      <block wx:for="{{xinshu}}" wx:key="booknum" >
+        <navigator url='/pages/detail/detail?id={{xinshu[index].Book_Id}}&name={{xinshu[index].Book_Name}}&picurl={{xinshu[index].Picture_URL}}&auth={{xinshu[index].Author}}&cate={{xinshu[index].Category}}&label={{xinshu[index].Label}}'>
+          <view id='book1' class='content'>
+            <view id='imagee' class='leftstyle'>
+              <image src="{{xinshu[index].Picture_URL}}" class='left-image'>
+              </image>
+            </view>
+            <view id='rightt' class='rightstyle'>
+              <view id='shuming' class='shumingstyle'>{{xinshu[index].Book_Name}}</view>
+              <view id='zuozhe' class='zuozhestyle'>作者:{{xinshu[index].Author}}</view>
+              <view id='jianjie' class='jianjiestyle'>{{xinshu[index].Summary}}</view>
+              <view id='youxia' class='youxiastyle'>
+                <view id='blank' class='blankstyle'></view>
+                <view id='biaoqian' class='biaoqianstyle'>{{xinshu[index].Label}}</view>
+                <view id='leibie' class='leibiestyle'>{{xinshu[index].Category}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
 
 
 </view>

@@ -1,27 +1,41 @@
 <view id='book1' class='content' style='background-color: #EFEFF4'>
   <view class='image-view'>
-    <image src="/images/book_detail_example.png" class='image' mode="scaleToFill">
+    <image src="{{pic}}" class='image'>
     </image>
   </view>
 
   <view id='rightt' class='rightstyle'>
-    <view id='shuming' class='shumingstyle'>舍得，舍不得</view>
-    <view id='zuozhe' class='zuozhestyle'>作者:蒋勋</view>
+    <view id='shuming' class='shumingstyle'>{{book_name}}</view>
+    <view id='zuozhe' class='zuozhestyle'>作者:{{author}}</view>
     <view id='jianjie' class='jianjiestyle'>
-      <view class='blstyle' class='leibiestyle'>类别:文学</view>
+      <view  class='leibiestyle'>类别:{{category}}</view>
+      <view wx:if="{{iscollect == 1}}"  catchtap='collect'>
+        <image src="/images/collected.png" style="height:70rpx;width:70rpx"></image>
+      </view>
+       <view wx:else  catchtap='collect'>
+        <image src="/images/not_collected.png" style="height:70rpx;width:70rpx"></image>
+      </view>
+
+
     </view>
 
     <view id='youxia' class='youxiastyle'>
       <view id='blank' class='blankstyle'></view>
-      <view>
-        <button class='buttonstyle' hover-class='hover-style'> 收藏</button>
+      <view wx:if="{{is_buy == 1}}">
+        <button class='buttonstyle' hover-class='hover-style'>已购买</button>
       </view>
+
+      <view wx:else>
+        <button class='buttonstyle' hover-class='hover-style' catchtap='buy'>购买</button>
+      </view>
+
+
       <view class='anniuzhong'></view>
       <view>
-        <navigator url='/pages/reader/reader'>
+        <navigator url='/pages/reader/reader?book_id={{book_id}}&label={{book_label}}'>
 
-          <button class='buttonstyle' hover-class='hover-style'> 阅读</button>
-
+          <button wx:if="{{book_label == 1}}" class='buttonstyle' hover-class='hover-style'> 阅读</button>
+          <button wx:else class='buttonstyle' hover-class='hover-style'> 试读</button>
         </navigator>
       </view>
     </view>
@@ -34,8 +48,13 @@
   <view class='borderstyle' style='height:15%'>
     章节目录
   </view>
-  <scroll-view scroll-y="true" style='height:85%'>
-    这是章节目录测试
+
+
+  <scroll-view class='menu_style' wx:for="{{book_menu}}" wx:key="sda" scroll-y="true" style='width:100%' wx:key="sda">
+
+    {{item}}
+
+
   </scroll-view>
 </view>
 
@@ -43,8 +62,40 @@
   <view class='borderstyle2' style='height:15%'>
     全部评论
   </view>
-  <scroll-view scroll-y="true" style='height:85%'>
-    这是评论测试
+  <scroll-view scroll-y="true">
+    <view class='comment_style' wx:for="{{book_comment}}" wx:key='snfj'>
+
+      <view class='comment-header'>
+        <image src='{{item.User_Picture}}' class='head_image'></image>
+      </view>
+
+
+      <view class='comment_content'>
+        <text>{{item.User_Nickname}}</text>
+        <view style='display:flex,flex-direction:row'>
+          <block wx:for="{{item.Grade}}" wx:key="index">
+            <image class='star_2' id='{{index+1}}' data-in='star' src='../../images/star.png'></image>
+          </block>
+          <block wx:for="{{5-item.Grade}}" wx:key="index">
+            <image class='star_2' id='{{index+1}}' data-in='star_hollow' src='../../images/star_hollow.png'></image>
+          </block>
+        </view>
+
+        <text>{{item.Comment}} </text>
+      </view>
+    </view>
+
+
   </scroll-view>
-  <input class="weui-input" placeholder="请输入评论..." type='text' confirm-type='send' style='border-top: medium solid #EFEFF4'> </input>
 </view>
+<view style='border-top: medium solid #EFEFF4'>
+  <block wx:for="{{one}}" wx:key="index">
+    <image class='star_1' catchtap='in_xin' id='{{index+1}}' data-in='star' src='../../images/star.png'></image>
+  </block>
+  <block wx:for="{{two}}" wx:key="index">
+    <image class='star_1' catchtap='in_xin' id='{{index+1}}' data-in='star_hollow' src='../../images/star_hollow.png'></image>
+  </block>
+</view>
+<input class="weui-input" placeholder="请输入评论..." value='{{input_value}}' type='text' confirm-type='send' bindconfirm='CommentInput' style='margin-top:20rpx'>
+
+</input>

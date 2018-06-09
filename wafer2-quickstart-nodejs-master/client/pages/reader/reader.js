@@ -1,78 +1,204 @@
-// pages/book/book.js
+var currentChapter = 0
+var chapters
+var book_content
+var book_id=1
+var now_chapter
+var app=getApp()
+var user_book
+var new_percentage=1
+var label = 0
+//var username=app.globalData.openid
 Page({
+  
 
   /**
    * 页面的初始数据
    */
   data: {
-    bookInfo:{
-      coverUrl:"/images/kris8.jpeg",
-      title:"Like That",
-      author:"kris"
-    },
-    pages:[
-      {
-        text: "页面管理框架 管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进 框架 中，其他的一切复杂的操作都交由 框架 处理。 基础组件框架                   提供了一套基础的组件，这些组件自带微信风格的样式以及特殊的逻辑，开发者可以通过组合基础组件，创建出强大的微信小程序 。丰富的 API框架 提供丰富的微信原生 API，可以方便的调起微信提供的能力，如获取用户信息，本地存储，支付功能等。2014年5月15日，吴亦凡正式向首尔中央地方法院提出请求判决与SM娱乐公司《专属合同》无效 [29-30]  。6月，拍摄个人首部电影《有一个地方只有我们知道》，在片中饰演大提琴手单亲爸爸彭泽阳 [10]  [31]  [32]  。7月17日，为《小时代3：刺金时代》演唱片尾曲《时间煮雨》 [7]  [33-34]  。8月，确定出演《夏有乔木》男主角夏木 [35-36]  。9月11日，《有一个地方只有我们知道》在北京举行的关机发布会上，为其演唱插曲"
-      },
-      {
-        text: "页面管理框架 管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进 框架 中，其他的一切复杂的操作都交由 框架 处理。 基础组件框架                   提供了一套基础的组件，这些组件自带微信风格的样式以及特殊的逻辑，开发者可以通过组合基础组件，创建出强大的微信小程序 。丰富的 API框架 提供丰富的微信原生 API，可以方便的调起微信提供的能力，如获取用户信息，本地存储，支付功能等。2014年5月15日，吴亦凡正式向首尔中央地方法院提出请求判决与SM娱乐公司《专属合同》无效 [29-30]  。6月，拍摄个人首部电影《有一个地方只有我们知道》，在片中饰演大提琴手单亲爸爸彭泽阳 [10]  [31]  [32]  。7月17日，为《小时代3：刺金时代》演唱片尾曲《时间煮雨》 [7]  [33-34]  。8月，确定出演《夏有乔木》男主角夏木 [35-36]  。9月11日，《有一个地方只有我们知道》在北京举行的关机发布会上，为其演唱插曲"
-      }
-    ]
+    topNum:0,
+    showView:true
+  },
+
+  returnTop:function(e){
+    if(wx.pageScrollTo){
+      wx.pageScrollTo({
+        scrollTop: 0,
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+    label = options.label
+    // console.log('reader get label' + options.label)
+
+    console.log('Onreader load: '+ options.book_id)
+
+    showView:(options.showView == "true" ? true : false)
+    if(app.globalData.logged){
+      wx.request({   //从User_Book表中获取当前阅读进度
+        url: 'https://eixy35ua.qcloud.la/weapp/test_text',
+        data: {
+          user_name: app.globalData.openid,
+          book_id: options.book_id
+        },
+        success: res => {
+
+          user_book = res.data.data
+          currentChapter = user_book[0].Percentage - 1
+          console.log(user_book[0].Percentage)
+          // this.setData({
+          //   jindu: user_book[0].Percentage,
+          //   zongshu: chapters
+          // })
+        }
+      })
+    }
+   
+   
+    wx.request({   //从Book表中获取数据
+      url: 'https://eixy35ua.qcloud.la/weapp/book',
+      data: {
+        book_id:options.book_id
+      },
+      success:res =>
+      {
+        book_content= res.data.data
+        console.log(book_content)
+        chapters=res.data.data.length  //记录章节总数
+        book_id=book_content[0].Book_Id //当前书籍的BOOKID
+        console.log(book_id)
+        
+        console.log(app.globalData.openid)
+        if (currentChapter < chapters) {
+          this.setData({
+            text_chapter: book_content[currentChapter].Content,
+            now_chapter:currentChapter+1,
+            total_chapters:chapters
+          })
+        }        
+      }
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
+  //退出时，更新当前阅读进度
   onUnload: function () {
-  
+    wx.request({   
+      url: 'https://eixy35ua.qcloud.la/weapp/update_percentage',
+      data: {
+        user_name:app.globalData.openid,
+        book_id: book_content[0].Book_Id,
+        new_percentage:currentChapter+1
+      },
+      success: res => {
+        console.log(app.globalData.openid)
+        console.log('success!!!')
+        console.log(res.data)   
+      }
+    })
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
+  },
+//上一章
+  preChapter:function(){
+    if(currentChapter > 0){
+      currentChapter=  currentChapter - 1
+      if (wx.pageScrollTo) {
+        wx.pageScrollTo({
+          scrollTop: 0,
+        })
+      }
+      this.setData({
+        now_chapter:currentChapter + 1,
+        text_chapter: book_content[currentChapter].Content,
+        total_chapters:chapters
+      })
+    }else{
+      wx.showToast({
+        title: '没有上一章了哦~o(╯□╰)o',
+        icon: 'success',
+        duration: 2000
+      })
+    }
+  },
+//下一章
+  nextChapter:function () {
+
+    if(label == 1){
+      if (currentChapter < chapters - 1) {
+        currentChapter = currentChapter + 1
+        if (wx.pageScrollTo) {
+          wx.pageScrollTo({
+            scrollTop: 0,
+          })
+        }
+        this.setData({
+          now_chapter: currentChapter + 1,
+          text_chapter: book_content[currentChapter].Content,
+          total_chapters: chapters
+        })
+
+      } else {
+        wx.showToast({
+          title: '已经是最后一章了哦o(╯□╰)o',
+          icon: 'success',
+          duration: 1000
+        })
+      }
+    }else{
+      wx.showToast({
+        title: '试读结束了哦o(╯□╰)o',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    
   }
 })

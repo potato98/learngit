@@ -1,5 +1,51 @@
 @import '/weui.wxss';
 
+.star_1{  
+  height: 60rpx;  
+  width: 60rpx;  
+  display: inline-block  
+}  
+
+.star_2{  
+  height: 40rpx;  
+  width: 40rpx;  
+  display: inline-block  
+} 
+
+
+.comment_style{
+  padding-left: 15rpx;
+  display: flex;
+  flex-direction: row
+}
+
+.comment-header{
+  width:120rpx;
+  padding-top: 15rpx;
+  padding-left: 10rpx
+}
+
+.head_image{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1rpx gray solid;
+  border-radius: 50%
+}
+
+.comment_content{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size:30rpx;
+  border-bottom: 2rpx dashed #EFEFF4;
+
+}
+.menu_style{
+  padding-left: 15rpx;
+  font-size:30rpx;
+  padding-top: 10rpx
+
+}
 .mainstyle{
   border:1rpx dashed gray;
 }
@@ -7,6 +53,7 @@
   height: 330rpx;
   display: flex;
 }
+
 .image-view{
   
   display: flex;
@@ -48,7 +95,7 @@
 }
 .jianjiestyle{
   height: 60rpx;
-    display: flex;
+   display: flex;
   flex-direction: row;
 }
 .kong{
@@ -80,6 +127,7 @@
   justify-content: center; 
 }
 .leibiestyle{
+  width: 350rpx;
    margin-top: 20rpx;
   margin-left: 25rpx;
   height: 50rpx;
@@ -107,14 +155,12 @@
   
 }
 
-.blstyle{
-  width: 300rpx;
-}
+
 .buttonstyle{
   
   width: 150rpx;
   height: 75rpx;
-  font-size: 35rpx;
+  font-size: 30rpx;
   color: white;
   display: flex;  
   background-color:#6CA6CD;
@@ -134,9 +180,7 @@
 .zhangjiestyle{
   height: 450rpx;
 }
-.pinglunstyle{
-  height: 500rpx;
-}
+
 .weui-input{
   width:100%;
   border:0;
@@ -164,4 +208,17 @@
 }
 .hover-style{
   background-color:cadetblue;
+}
+
+.Categorystyle{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 2rpx;
+  font-family: "黑体";
+  width: 100%;
+  height: 80rpx;
+  border: 1rpx dashed #c2c287;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,129 +1,187 @@
-/**index.wxss**/
-page {
-    background: #F6F6F6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+@import '/weui.wxss';
+
+page{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+.book_refer{
+  width: 100%;
+  height: 360rpx;
+}
+.navbar{
+  font-size: 35rpx;
+  flex:none;
+  display: flex;
+  background: #f0f0f0;
 }
 
-.userinfo, .uploader, .tunnel {
-    margin-top: 40rpx;
-    height: 140rpx;
-    width: 100%;
-    background: #FFF;
-    border: 1px solid rgba(0, 0, 0, .1);
-    border-left: none;
-    border-right: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: all 300ms ease;
+.navbar .item{
+  color: gray;
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
 }
 
-.userinfo-avatar {
-    width: 100rpx;
-    height: 100rpx;
-    margin: 20rpx;
-    border-radius: 50%;
+.navbar .item.active{
+  color: black;
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
 }
 
-.userinfo-nickname {
-    font-size: 32rpx;
-    color: #007AFF;
-    background-color: white; 
+.searchbar
+{
+  width: 100%;
+  height:90rpx;
+  
 }
 
-.userinfo-nickname::after {
-  border: none;
+.searchbar_box{
+   background-color: #f0f0f0;
+   height: 100rpx;
 }
 
-.uploader, .tunnel {
-    height: auto;
-    padding: 0 0 0 40rpx;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: #8e8e8e;
+}
+.refer_text{
+  height: 50rpx;
+  padding: 10rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: thin solid gray;
 }
 
-.uploader-text, .tunnel-text {
-    width: 100%;
-    line-height: 52px;
-    font-size: 34rpx;
-    color: #007AFF;
+.mainstyle {
+  border-bottom: 1rpx dashed darkgray;
 }
 
-.uploader-container {
-    width: 100%;
-    height: 400rpx;
-    padding: 20rpx 20rpx 20rpx 0;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+.content {
+  height: 250rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx dashed darkgray;
 }
 
-.uploader-image {
-    width: 100%;
-    height: 360rpx;
+.leftstyle {
+  height: 250rpx;
+  width: 200rpx;
 }
 
-.tunnel {
-    padding: 0 0 0 40rpx;
+.left-image {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 160rpx;
+  height: 200rpx;
 }
 
-.tunnel-text {
-    position: relative;
-    color: #222;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+.rightstyle {
+  height: 250rpx;
+  width: 550rpx;
+  display: flex;
+  flex-direction: column;
 }
 
-.tunnel-text:first-child {
-    border-top: none;
+.shumingstyle {
+  margin-top: 10rpx;
+  height: 50rpx;
+  font-size: 30rpx;
 }
 
-.tunnel-switch {
-    position: absolute;
-    right: 20rpx;
-    top: -2rpx;
+.zuozhestyle {
+  height: 50rpx;
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #4169e1;
 }
 
-.disable {
-    color: #888;
+.jianjiestyle {
+  height: 100rpx;
+  font-size: 28rpx;
+  margin-top: 8rpx;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.service {
-    position: fixed;
-    right: 40rpx;
-    bottom: 40rpx;
-    width: 140rpx;
-    height: 140rpx;
-    border-radius: 50%;
-    background: linear-gradient(#007AFF, #0063ce);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    transition: all 300ms ease;
+.youxiastyle {
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
 }
 
-.service-button {
-    position: absolute;
-    top: 40rpx;
+.blankstyle {
+  width: 320rpx;
 }
 
-.service:active {
-    box-shadow: none;
+.biaoqianstyle {
+  margin-right: 10rpx;
+  width: 100rpx;
+  color:  #4F94CD;
+  border-top: thin solid #4F94CD;
+  border-left: thin solid #4F94CD;
+  border-right: thin solid #4F94CD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.request-text {
-    padding: 20rpx 0;
-    font-size: 24rpx;
-    line-height: 36rpx;
-    word-break: break-all;
+.leibiestyle {
+  color: gray;
+  width: 120rpx;
+  margin-right: 10rpx;
+  border-top: thin solid gray;
+  border-left: thin solid gray;
+  border-right: thin solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zishustyle {
+  color: gray;
+  width: 120rpx;
+  border-top: thin solid gray;
+  border-left: thin solid gray;
+  border-right: thin solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Categorystyle{
+
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 2rpx;
+  font-family: "黑体";
+  width: 100%;
+  height: 80rpx;
+  border: 1rpx dashed #c2c287;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("http://img2.imgtn.bdimg.com/it/u=192386905,692307859&fm=27&gp=0.jpg");
+  background-size: 100% 100%;
+
+}
+
+.fengexianimage{
+  width: 100%;
+  height: 100%;
 }

@@ -1,14 +1,44 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/addCgi/addCgi",
-    "pages/newpage/newpage"
+    "pages/bookshelf/bookshelf",
+     "pages/detail/detail",
+     "pages/reader/reader",
+     "pages/my/my",
+     "pages/search/search",
+     "pages/searchresult/searchresult"
   ],
+  "tabBar": {
+    "color": "gray", 
+    "selectedColor": "black", 
+    "borderStyle": "black",
+    "backgroundColor":"#ffffff",
+    "list": [
+      {
+        "iconPath":"images/Book_City.png",
+        "selectedIconPath":"images/Book_City2.png",
+        "pagePath": "pages/index/index",
+        "text": "书城"
+      },
+      {
+       "iconPath":"images/Book_Shelf.png",
+        "selectedIconPath":"images/Book_Shelf2.png",
+        "pagePath": "pages/bookshelf/bookshelf",
+        "text": "书架"
+      },
+      {
+        "iconPath":"images/User.png",
+         "selectedIconPath":"images/User2.png",
+        "pagePath": "pages/my/my",
+        "text": "账户"
+      }
+    ]
+  },
   "window":{
     "backgroundColor":"#F6F6F6",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "ik_book_assist",
+    "navigationBarTitleText": "ik图书助手",
     "navigationBarTextStyle":"black"
   }
 }

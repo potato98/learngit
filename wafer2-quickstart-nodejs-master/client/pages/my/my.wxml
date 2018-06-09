@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户登录 -->
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}" background-size="cover"></image>
+    <view>
+      <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" catchtap ="bindGetUserInfo">点击登录 </button>
+      <text class="userinfo-nickname-success" wx:else>{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <view class='person_center'>
+    个人中心
+  </view>
+
+  <view class='activity_board'>
+    <view class='activity_sonboard' catchtap='qiandao'>
+      <image src='/images/qiandao.png' class='activity_image'>
+      </image>
+      签到
+    </view>
+
+    <view class='activity_sonboard2' catchtap= 'mywallet'>
+      <image src='/images/mywallet.png' class='activity_image2'>
+      </image>
+      我的钱包
+    </view>
+
+  </view>
+
+
+
+
+
+
+</view>

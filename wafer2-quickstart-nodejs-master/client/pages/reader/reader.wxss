@@ -1,67 +1,52 @@
 /* pages/book/book.wxss */
+
+/*正文*/
+.chapter_sv{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+.chapter_view{
+    display: flex;
+    flex-direction: column;
+}
+.btn_chapters{
+    background-color: #00BCD4;
+    color: white;
+    float: left;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 20rpx;
+}
+.text_chapter{
+    display: block;
+    color: black;
+    font-size: 35rpx;
+    margin: 20rpx;
+    font-family: '宋体';
+}
+.btn_view{
+    display: flex;
+    flex-direction: row;
+    margin: 20rpx 60rpx;
+}
+
+.btn_chapter{
+    color: white;
+    background-color: #d2691e;
+    margin: 20rpx;
+    margin-left: 30rpx;
+}
+
 page{
   background: burlywood;
 }
-.swiper-wrapper {
-  position: absolute;
-  top: 0rpx;
-  bottom: 0rpx;
-  left: 0rpx;
-  right: 0rpx;
-  width: 100%;
-  height: 100%;
-}
 
-.swiper-box {
-  height: 100%;
-}
-.bookcover{
-  position:absolute;
-  top:50rpx;
-  left: 30rpx;
-  right: 30rpx;
-  bottom: 50rpx;
-  background: white; 
-  border-radius: 10rpx; 
-}
-.pic-view{
-  display: flex;
-  justify-content: space-around;
-}
-.pic{
-  margin-top: 100rpx;
+.Jindu{
+  color: #d2691e;
+  font-size: 20rpx;
   text-align: center;
 }
-/*封面*/
-.name{
-  margin-top: 80rpx;
-  text-align: center;
-  font-size: 40rpx;
-  color: #353535;
 
-}
-
-.author{
-  margin-top: 20rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: #666666;
-}
-/*内容页*/
-.bookpage{
-  height: 100%;
-}
-.page-num{
-  text-align: right;
-  position: absolute;
-  right: 20rpx;
-  bottom: 10rpx;
-}
-.content{
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-.content-txt{
-  font-size: 30rpx;
-  font-family: Songti;
-}

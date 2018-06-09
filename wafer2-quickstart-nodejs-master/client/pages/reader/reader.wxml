@@ -1,30 +1,16 @@
-<!--pages/book/book.wxml-->
-<view class='swiper-wrapper'>
-  <!--总轮播图  -->
-  <swiper class='swiper-box'>
-  <!--书本封面S  -->
-    <swiper-item class='item-cover'>
-      <view class="bookcover">
-            <view class='pic-view'>
-              <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%" class = 'pic'></image>
-            </view>
-            <view class="name">{{bookInfo.title}}</view>
-            <view class="author">作者：{{bookInfo.author}}</view>
-      </view>
-    </swiper-item>
-    <!--书本封面E  -->
+<scroll-view class="chapter_sv" scroll-y= scroll-with-animation="true" scroll-top='{{topNum}}'>
+        <text class="text_chapter">{{text_chapter}}</text>
+        <text class="Jindu"> \n\r\r {{now_chapter}} / {{total_chapters}}</text>
+        <view class="btn_view">
+            <block wx:if="{{currentChapter!=0}}">
+                <button class="btn_chapter" catchtap="preChapter" data-current_index="{{currentChapter}}" size="mini">上一章</button>
+            </block>
+            <block wx:if="{{currentChapter!=chapters.length-1}}">
+                <button class="btn_chapter" catchtap="nextChapter" data-current_index="{{currentChapter}}" size="mini">下一章</button>
+            </block>
+            <block>
+                <button class="btn_chapter" bindtap="returnTop" size="mini">返回顶部</button>
+            </block>
+        </view>
+</scroll-view>
 
-     <!-- 书本内容页面 S-->
-    <swiper-item wx:for="{{pages}}" wx:for-index="index">
-      <view class="bookpage">
-          <!-- 内容 S -->
-          <view class="page-wrapper">
-            <view class="content"><text class='content-txt'>{{item.text}}</text></view>
-          </view>
-          <!-- 内容 E -->
-        <view class="page-num">{{index + 1}}</view>
-      </view>
-    </swiper-item>
-    <!-- 书本内容页面 E-->
-  </swiper>
-</view>
