@@ -77,8 +77,8 @@ Page({
   },
 
 
-//初始化购买按钮
-  doInitBuy: function () {
+//初始化阅读按钮
+  doInitReader: function () {
     if (booklabel == '限免') {
       this.setData({
         book_label: 1
@@ -133,7 +133,7 @@ Page({
     
     this.doInitBuy_Collect()
 
-    this.doInitBuy()
+    this.doInitReader()
 
     this.getmenu()
     
@@ -161,6 +161,8 @@ Page({
             iscollect: res.data.data[0].If_Collect,
             is_buy: res.data.data[0].If_Buy
           })
+
+          that.doInitReader()
 
         }
 
@@ -348,7 +350,7 @@ Page({
               is_buy: 1
             })
 
-            that.doInitBuy()
+            that.doInitReader()
 
           }
         }
