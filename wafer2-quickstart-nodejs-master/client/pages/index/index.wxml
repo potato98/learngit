@@ -20,7 +20,7 @@
 
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
       <block wx:for="{{refer_book}}" wx:key="booknum" >
-        <navigator url='/pages/detail/detail?id={{refer_book[index].Book_Id}}&name={{refer_book[index].Book_Name}}&picurl={{refer_book[index].Picture_URL}}&auth={{refer_book[index].Author}}&cate={{refer_book[index].Category}}&label={{refer_book[index].Label}}'>
+        <navigator url='/pages/detail/detail?id={{refer_book[index].Book_Id}}&name={{refer_book[index].Book_Name}}&picurl={{refer_book[index].Picture_URL}}&auth={{refer_book[index].Author}}&cate={{refer_book[index].Category}}&label={{refer_book[index].Label}}&price={{refer_book[index].Price}}'>
           <view id='book1' class='content'>
             <view id='imagee' class='leftstyle'>
               <image src="{{refer_book[index].Picture_URL}}" class='left-image'>
@@ -50,7 +50,7 @@
   </view>
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
     <block wx:for="{{book_xiaoshuo}}" wx:key="booknum" >
-      <navigator url='/pages/detail/detail?id={{book_xiaoshuo[index].Book_Id}}&name={{book_xiaoshuo[index].Book_Name}}&picurl={{book_xiaoshuo[index].Picture_URL}}&auth={{book_xiaoshuo[index].Author}}&cate={{book_xiaoshuo[index].Category}}&label={{book_xiaoshuo[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{book_xiaoshuo[index].Book_Id}}&name={{book_xiaoshuo[index].Book_Name}}&picurl={{book_xiaoshuo[index].Picture_URL}}&auth={{book_xiaoshuo[index].Author}}&cate={{book_xiaoshuo[index].Category}}&label={{book_xiaoshuo[index].Label}}&price={{book_xiaoshuo[index].Price}}'>
         <view id='book1' class='content'>
           <view id='imagee' class='leftstyle'>
             <image src="{{book_xiaoshuo[index].Picture_URL}}" class='left-image'>
@@ -76,7 +76,7 @@
   </view>
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
     <block wx:for="{{book_zhuanji}}" wx:key="booknum" >
-      <navigator url='/pages/detail/detail?id={{book_zhuanji[index].Book_Id}}&name={{book_zhuanji[index].Book_Name}}&picurl={{book_zhuanji[index].Picture_URL}}&auth={{book_zhuanji[index].Author}}&cate={{book_zhuanji[index].Category}}&label={{book_zhuanji[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{book_zhuanji[index].Book_Id}}&name={{book_zhuanji[index].Book_Name}}&picurl={{book_zhuanji[index].Picture_URL}}&auth={{book_zhuanji[index].Author}}&cate={{book_zhuanji[index].Category}}&label={{book_zhuanji[index].Label}}&price={{book_zhuanji[index].Price}}'>
         <view id='book1' class='content' >
           <view id='imagee' class='leftstyle'>
             <image src="{{book_zhuanji[index].Picture_URL}}" class='left-image'>
@@ -102,7 +102,7 @@
   </view>
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
     <block wx:for="{{book_yishu}}" wx:key="booknum" >
-      <navigator url='/pages/detail/detail?id={{book_yishu[index].Book_Id}}&name={{book_yishu[index].Book_Name}}&picurl={{book_yishu[index].Picture_URL}}&auth={{book_yishu[index].Author}}&cate={{book_yishu[index].Category}}&label={{book_yishu[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{book_yishu[index].Book_Id}}&name={{book_yishu[index].Book_Name}}&picurl={{book_yishu[index].Picture_URL}}&auth={{book_yishu[index].Author}}&cate={{book_yishu[index].Category}}&label={{book_yishu[index].Label}}&price={{book_yishu[index].Price}}'>
         <view id='book1' class='content'>
           <view id='imagee' class='leftstyle'>
             <image src="{{book_yishu[index].Picture_URL}}" class='left-image'>
@@ -128,7 +128,7 @@
   </view>
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
     <block wx:for="{{book_wenxue}}" wx:key="booknum" >
-      <navigator url='/pages/detail/detail?id={{book_wenxue[index].Book_Id}}&name={{book_wenxue[index].Book_Name}}&picurl={{book_wenxue[index].Picture_URL}}&auth={{book_wenxue[index].Author}}&cate={{book_wenxue[index].Category}}&label={{book_wenxue[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{book_wenxue[index].Book_Id}}&name={{book_wenxue[index].Book_Name}}&picurl={{book_wenxue[index].Picture_URL}}&auth={{book_wenxue[index].Author}}&cate={{book_wenxue[index].Category}}&label={{book_wenxue[index].Label}}&price={{book_wenxue[index].Price}}'>
         <view id='book1' class='content'>
           <view id='imagee' class='leftstyle'>
             <image src="{{book_wenxue[index].Picture_URL}}" class='left-image'>
@@ -156,7 +156,7 @@
 
   <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
     <block wx:for="{{free_book}}" wx:key="booknum" >
-      <navigator url='/pages/detail/detail?id={{free_book[index].Book_Id}}&name={{free_book[index].Book_Name}}&picurl={{free_book[index].Picture_URL}}&auth={{free_book[index].Author}}&cate={{free_book[index].Category}}&label={{free_book[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{free_book[index].Book_Id}}&name={{free_book[index].Book_Name}}&picurl={{free_book[index].Picture_URL}}&auth={{free_book[index].Author}}&cate={{free_book[index].Category}}&label={{free_book[index].Label}}&price={{free_book[index].Price}}'>
         <view id='book1' class='content'>
           <view id='imagee' class='leftstyle'>
             <image src="{{free_book[index].Picture_URL}}" class='left-image'>
@@ -187,7 +187,7 @@
   <view hidden="{{currentTab2!==0}}">
     <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
       <block wx:for="{{dianji}}" wx:key="booknum" >
-        <navigator url='/pages/detail/detail?id={{dianji[index].Book_Id}}&name={{dianji[index].Book_Name}}&picurl={{dianji[index].Picture_URL}}&auth={{dianji[index].Author}}&cate={{dianji[index].Category}}&label={{dianji[index].Label}}'>
+        <navigator url='/pages/detail/detail?id={{dianji[index].Book_Id}}&name={{dianji[index].Book_Name}}&picurl={{dianji[index].Picture_URL}}&auth={{dianji[index].Author}}&cate={{dianji[index].Category}}&label={{dianji[index].Label}}&price={{dianji[index].Price}}'>
           <view id='book1' class='content'>
             <view id='imagee' class='leftstyle'>
               <image src="{{dianji[index].Picture_URL}}" class='left-image'>
@@ -211,7 +211,7 @@
   <view hidden="{{currentTab2!==1}}">
     <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
       <block wx:for="{{shoucang}}" wx:key="booknum" >
-        <navigator url='/pages/detail/detail?id={{shoucang[index].Book_Id}}&name={{shoucang[index].Book_Name}}&picurl={{shoucang[index].Picture_URL}}&auth={{shoucang[index].Author}}&cate={{shoucang[index].Category}}&label={{shoucang[index].Label}}'>
+        <navigator url='/pages/detail/detail?id={{shoucang[index].Book_Id}}&name={{shoucang[index].Book_Name}}&picurl={{shoucang[index].Picture_URL}}&auth={{shoucang[index].Author}}&cate={{shoucang[index].Category}}&label={{shoucang[index].Label}}&price={{shoucang[index].Price}}'>
           <view id='book1' class='content'>
             <view id='imagee' class='leftstyle'>
               <image src="{{shoucang[index].Picture_URL}}" class='left-image'>
@@ -235,7 +235,7 @@
   <view hidden="{{currentTab2!==2}}">
     <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
       <block wx:for="{{fufei}}" wx:key="booknum" >
-        <navigator url='/pages/detail/detail?id={{fufei[index].Book_Id}}&name={{fufei[index].Book_Name}}&picurl={{fufei[index].Picture_URL}}&auth={{fufei[index].Author}}&cate={{fufei[index].Category}}&label={{fufei[index].Label}}'>
+        <navigator url='/pages/detail/detail?id={{fufei[index].Book_Id}}&name={{fufei[index].Book_Name}}&picurl={{fufei[index].Picture_URL}}&auth={{fufei[index].Author}}&cate={{fufei[index].Category}}&label={{fufei[index].Label}}&price={{fufei[index].Price}}'>
           <view id='book1' class='content'>
             <view id='imagee' class='leftstyle'>
               <image src="{{fufei[index].Picture_URL}}" class='left-image'>
@@ -259,7 +259,7 @@
   <view hidden="{{currentTab2!==3}}">
     <scroll-view scroll-y="true" style='height:100%' class='mainstyle'>
       <block wx:for="{{xinshu}}" wx:key="booknum" >
-        <navigator url='/pages/detail/detail?id={{xinshu[index].Book_Id}}&name={{xinshu[index].Book_Name}}&picurl={{xinshu[index].Picture_URL}}&auth={{xinshu[index].Author}}&cate={{xinshu[index].Category}}&label={{xinshu[index].Label}}'>
+        <navigator url='/pages/detail/detail?id={{xinshu[index].Book_Id}}&name={{xinshu[index].Book_Name}}&picurl={{xinshu[index].Picture_URL}}&auth={{xinshu[index].Author}}&cate={{xinshu[index].Category}}&label={{xinshu[index].Label}}&price={{xinshu[index].Price}}'>
           <view id='book1' class='content'>
             <view id='imagee' class='leftstyle'>
               <image src="{{xinshu[index].Picture_URL}}" class='left-image'>

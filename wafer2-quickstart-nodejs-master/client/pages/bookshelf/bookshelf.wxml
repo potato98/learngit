@@ -7,7 +7,7 @@
 
     <view wx:if="{{index == 0 || bookinfo[index].User_Label != bookinfo[index-1].User_Label }}" class='Categorystyle'>{{bookinfo[index].User_Label}}</view>
     <view wx:if="{{!is_edit}}">
-      <navigator url='/pages/detail/detail?id={{bookinfo[index].Book_Id}}&name={{bookinfo[index].Book_Name}}&picurl={{bookinfo[index].Picture_URL}}&auth={{bookinfo[index].Author}}&cate={{bookinfo[index].Category}}&label={{bookinfo[index].Label}}'>
+      <navigator url='/pages/detail/detail?id={{bookinfo[index].Book_Id}}&name={{bookinfo[index].Book_Name}}&picurl={{bookinfo[index].Picture_URL}}&auth={{bookinfo[index].Author}}&cate={{bookinfo[index].Category}}&label={{bookinfo[index].Label}}&price={{bookinfo[index].Price}}'>
         <view id='book1' class='content'>
           <view id='imagee' class='leftstyle'>
             <image src="{{bookinfo[index].Picture_URL}}" class='left-image'>

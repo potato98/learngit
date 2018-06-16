@@ -8,7 +8,7 @@
     <view id='shuming' class='shumingstyle'>{{book_name}}</view>
     <view id='zuozhe' class='zuozhestyle'>作者:{{author}}</view>
     <view id='jianjie' class='jianjiestyle'>
-      <view  class='leibiestyle'>类别:{{category}}</view>
+      <view  class='leibiestyle' style='display: flex;flex-direction:row'>类别:{{category}} <view style='width:70rpx'></view>    {{price}}书币</view>
       <view wx:if="{{iscollect == 1}}"  catchtap='collect'>
         <image src="/images/collected.png" style="height:70rpx;width:70rpx"></image>
       </view>
@@ -34,7 +34,7 @@
       <view>
         <navigator url='/pages/reader/reader?book_id={{book_id}}&label={{book_label}}'>
 
-          <button wx:if="{{book_label == 1}}" class='buttonstyle' hover-class='hover-style'> 阅读</button>
+          <button wx:if="{{book_label == 1 || is_buy == 1}}" class='buttonstyle' hover-class='hover-style'> 阅读</button>
           <button wx:else class='buttonstyle' hover-class='hover-style'> 试读</button>
         </navigator>
       </view>

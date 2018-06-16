@@ -87,7 +87,7 @@ Page({
       if (this.data.is_buy == 1) {
         this.setData({
           book_label: 1
-        })
+        }) 
       } else {
         this.setData({
           book_label: 0
@@ -123,7 +123,8 @@ Page({
       book_name: bookname,
       pic: url,
       author: options.auth,
-      category: options.cate
+      category: options.cate,
+      price: options.price
     })
 
 
